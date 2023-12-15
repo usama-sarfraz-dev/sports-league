@@ -1,1 +1,433 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.main-content{
+    min-height: 91vh;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 2rem;
+    background-color: #5700A3;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li:hover {
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(220, 234, 243, 0.5);
+    font-weight: 600;
+}
+
+.nav-links li:active {
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.Nav-btn-container {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    color: #fff;
+    font-weight: 600;
+}
+
+.nav-stats {
+    color: #FFFF54;
+}
+
+.Nav-btn-container a {
+    text-decoration: none;
+    padding: 0.2rem;
+    text-transform: uppercase;
+}
+
+.Nav-btn-container .deposit-btn {
+    background-color: yellowgreen;
+    padding: 5px 20px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #FFFF54;
+    border: none;
+    font-weight: 700;
+    color: #000;
+}
+
+.Nav-btn-container .withdraw-btn {
+    color: #EBEBEB;
+    padding: 2px 10px;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background-color: #5700A3
+    ;
+    border: 2px #fff solid;
+    border-radius: 5px;
+}
+
+.nav-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 999
+}
+
+.wrapper {
+    margin: 10px 0px;
+}
+
+
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: flex;
+    }
+
+    .toggle-button {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+    }
+
+
+    .toggle-button span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        margin: 5px 0;
+    }
+
+    .navbar {
+        justify-content: end;
+        text-align: center;
+    }
+    
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    z-index: 1;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+
+.sidebar-links {
+    list-style: none;
+    float: right;
+    text-align: end;
+    margin-top: 3rem;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: system-ui;
+}
+
+.sidebar-links li {
+    margin: 1rem 0;
+}
+
+.sidebar-links a {
+    color: #000;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-group button {
+    border: 1px solid #8862ad;
+    border-right: none;
+    padding: 10px 9px;
+    background-color: #fff;
+}
+.button-group button:hover {
+    background-color: #5700A3;
+    color: #fff;
+}
+
+.button-group button.selected {
+    background-color: #5700A3;
+    color: #fff;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.bet{
+    text-align: right;
+    padding: 6px 20px;
+    font-weight: 400;
+    margin: 10px;
+}
+
+.bet a{
+    border-bottom: 1px solid;
+    padding-bottom: 1px;
+    text-decoration: none;
+}
+.bet a svg{
+    margin-left: 3px;
+}
+
+.category {
+    background-color: #EBEBEB;
+    padding: 10px 20px;
+    margin-top: 5px;
+}
+
+.category-content {
+    background-color: #fff;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.icons {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.live-tag {
+    background-color: #FF0000;
+    padding: 1px 8px;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.category-btn-group .selected {
+    background-color: #5700A3;
+    border: none;
+    padding: 10px 20px;
+    color: #FFFF54;
+    font-weight: 800;
+}
+
+.fancy-btn{
+    color: #3A3A3A;
+    font-weight: 700;
+}
+
+.sportbook-btn{
+    color: #5700A3;
+    font-weight: 700;
+}
+.category-btn-group {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.category-btn-group button:hover{
+    background-color: #5700A3;
+    color: #FFFF54;
+    font-weight: 700;
+    border: none;
+}
+
+.category-body {
+    display: none;
+}
+
+.close-icon {
+    transition: transform 0.3s ease;
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+
+.rotate-icon {
+    transform: rotate(360deg);
+}
+
+.category-btn-group button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    border-color: blue;
+}
+
+
+.content-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.content-header .left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    line-height: 0px;
+}
+
+.League-stats{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.content-header .ngx{
+    margin-left: 10px;
+}
+
+.stats-value{
+    color: #FF001F;
+}
+
+hr {
+    width: 98%; 
+    margin: 0 auto; 
+}
+
+.content-btn {
+    display: flex;
+    gap: 5px;
+}
+
+.content-btn button {
+    padding: 5px;
+    background-color: #AED8FF;
+    border: none;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 70px;
+}
+
+.right-stats-color{
+    background-color: #F1BED2 !important;
+}
+.hr {
+    margin-top: -8px;
+}
+
+.stats-btn {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.stats-btn .stats {
+    background-color: #AED8FF;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    line-height: 18px;
+    font-size: 12px;
+    width: 60px;
+}
+
+.stats span {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+
+/* footer */
+
+.footer {
+    position: inherit;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0px 0px 30px 0px #62626266;
+    background-color: #FFFFFF;
+}
+
+.footer-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.footer-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-icon span {
+    font-weight: 600;
+}
+
+.home-icon {
+    margin-top: -2.6rem;
+    box-shadow: 0px 0px 30px 0px #62626266;
+    border: 0px solid;
+    border-radius: 50%;
+    padding: 15px;
+    background-color: #FFFFFF;
+    height: 30px;
+}
+
+

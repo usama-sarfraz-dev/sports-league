@@ -1,336 +1,406 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- app.component.html -->
+<main>
+  <div class="main-content">
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Leagues</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
 
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--french-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3),
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
+      <div class="Nav-btn-container">
+        <div class="nav-right">
+          <a href="#">
+            <button class="deposit-btn">DEPOSIT</button>
           </a>
-        }
+          <span><span class="nav-stats">BAL:</span> 93,900.00</span>
+        </div>
+        <div class="nav-right">
+          <a href="#">
+            <button class="withdraw-btn">WITHDRAW</button>
+          </a>
+          <span><span class="nav-stats">EXP:</span> 0.00</span>
+        </div>
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
+      <div class="mobile-nav">
+        <button class="toggle-button" (click)="toggleSidebar()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+            <rect width="18" height="3" rx="1.5" fill="white" />
+            <rect y="8" width="18" height="3" rx="1.5" fill="white" />
+            <rect y="16" width="18" height="3" rx="1.5" fill="white" />
           </svg>
-        </a>
-        <a
-          href="https://twitter.com/angular"
-          aria-label="Twitter"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="20"
-            viewBox="0 0 25 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Twitter"
-          >
+        </button>
+      </div>
+    </nav>
+
+    <div class="sidebar" [class.active]="isSidebarActive">
+      <div class="sidebar-header">
+      </div>
+      <ul class="sidebar-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="wrapper">
+      <div class="button-group">
+        <button class="selected">Cricket</button>
+        <button>Football</button>
+        <button>Tennis</button>
+        <button>BasketBall</button>
+        <button>Horse Racing</button>
+      </div>
+    </div>
+    <div class="bet">
+      <a href="#">How to bet <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0 0.838036C0.00600007 0.769374 0.0229658 0.703531 0.0465523 0.638091C0.111105 0.458685 0.223865 0.315119 0.376556 0.198737C0.534007 0.0785281 0.713388 0.0146988 0.912218 0C0.958771 0 1.00553 0 1.05208 0.000201354C1.10194 0.00865823 1.15284 0.0132894 1.20126 0.0263774C1.2714 0.0453047 1.3436 0.0628225 1.40774 0.0948378C1.50995 0.145982 1.60657 0.207596 1.70464 0.266391C1.91485 0.392439 2.12423 0.519292 2.33403 0.645743C2.6959 0.86401 3.05797 1.08167 3.41942 1.30034C3.62529 1.42498 3.83012 1.55123 4.03577 1.67607C4.30536 1.83977 4.57557 2.00247 4.84537 2.16597C4.95482 2.23221 5.06344 2.30007 5.1731 2.36591C5.27303 2.42591 5.37441 2.4835 5.47414 2.54371C5.57655 2.60532 5.67731 2.66935 5.77952 2.73117C6.05159 2.89587 6.32946 3.05112 6.58808 3.23657C6.76167 3.361 6.88519 3.51725 6.95202 3.71619C6.98119 3.80318 6.99754 3.89258 6.99981 3.98379C7.00126 4.03997 6.99402 4.09635 6.99029 4.15273C6.98471 4.23448 6.95947 4.312 6.92926 4.3871C6.85415 4.57356 6.72236 4.71591 6.55332 4.82606C6.44263 4.89814 6.32863 4.96559 6.21546 5.03405C6.02842 5.14681 5.84035 5.25816 5.65331 5.37092C5.40565 5.52032 5.15862 5.67074 4.91096 5.81994C4.72537 5.93189 4.53875 6.04203 4.35316 6.15399C4.10384 6.3042 3.85536 6.45541 3.60604 6.60562C3.41818 6.71878 3.22949 6.83053 3.04183 6.9439C2.78031 7.10156 2.51962 7.26063 2.2581 7.41809C2.02637 7.55762 1.79319 7.69495 1.56209 7.8357C1.41167 7.92731 1.25153 7.98852 1.07319 8C1.0196 8 0.966219 8 0.912632 7.9998C0.833803 7.99577 0.757044 7.98268 0.681939 7.95832C0.446902 7.88201 0.261727 7.74287 0.13345 7.53668C0.0604145 7.41929 0.00227589 7.29526 0.00620697 7.1529C0.00620697 7.1517 0.00434488 7.15069 0.00351728 7.14948"
+            fill="#5700A3" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="category" id="category1">
+      <div class="category-header">
+        <h4>Premier League</h4>
+        <div class="spacer"></div>
+        <div class="icons">
+          <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 16.6904H9H5" stroke="#5700A3" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M9 16.6904V12.6904" stroke="#5700A3" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path
+                d="M16 1.69043H2C1.44772 1.69043 1 2.13814 1 2.69043V11.6904C1 12.2427 1.44772 12.6904 2 12.6904H9H16C16.5523 12.6904 17 12.2427 17 11.6904V2.69043C17 2.13815 16.5523 1.69043 16 1.69043Z"
+                stroke="#5700A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="live-tag"><strong>LIVE</strong></span>
+          <span class="close-icon" (click)="toggleCategoryBody('category1')"><svg width="19" height="19"
+              viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18.6899 18.6904L-5.91278e-05 18.6904L-5.74939e-05 0.00042752L18.6899 0.000429153L18.6899 18.6904Z"
+                fill="white" fill-opacity="0.01" />
+              <path d="M4.28308 11.6816L8.95558 7.00914L13.6281 11.6816" stroke="#6D6D6D" stroke-width="1.5575"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="category-body">
+        <div class="category-btn-group">
+          <button class="selected">ALl</button>
+          <button class="fancy-btn">Fancy</button>
+          <button class="sportbook-btn">SPORTBOOK</button>
+        </div>
+        <div class="category-content">
+          <div class="content-header">
+            <span class="League-stats">Min:100 | Max:1000</span>
+            <div class="spacer"></div>
+            <div class="content-btn">
+              <button>Yes</button>
+              <button class="right-stats-color">No</button>
+            </div>
+          </div>
+          <hr class="hr">
+          <div class="content-header">
+            <div class="League-stats ngx">
+              <div class="left">
+                <span> <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="15" height="14" rx="0.790323" stroke="#3A3A3A" />
+                    <rect x="4" y="4" width="1.84" height="8.70968" fill="#3A3A3A" />
+                    <rect x="7" y="2" width="1.84" height="10.6452" fill="#3A3A3A" />
+                    <rect x="10" y="8" width="1.84" height="4.59677" fill="#3A3A3A" />
+                  </svg></span>
+                <span>Chennai Super Kings</span>
+              </div>
+              <div class="left">
+                <span><svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M14.3536 4.35355C14.5488 4.15829 14.5488 3.84171 14.3536 3.64645L11.1716 0.464466C10.9763 0.269204 10.6597 0.269204 10.4645 0.464466C10.2692 0.659728 10.2692 0.976311 10.4645 1.17157L13.2929 4L10.4645 6.82843C10.2692 7.02369 10.2692 7.34027 10.4645 7.53553C10.6597 7.7308 10.9763 7.7308 11.1716 7.53553L14.3536 4.35355ZM0 4.5H14V3.5H0V4.5Z"
+                      fill="#FF0000" />
+                  </svg></span>
+                <span class="stats-value">0.00</span>
+              </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="stats-btn">
+              <span class="stats">
+                <span>126</span><br>22672.4
+              </span>
+              <span class="right-stats-color stats">
+                <span>126</span><br> 22672.4
+              </span>
+            </div>
+          </div>
+          <hr>
+          <div class="content-header">
+            <div class="League-stats ngx">
+              <div class="left">
+                <span> <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="15" height="14" rx="0.790323" stroke="#3A3A3A" />
+                    <rect x="4" y="4" width="1.84" height="8.70968" fill="#3A3A3A" />
+                    <rect x="7" y="2" width="1.84" height="10.6452" fill="#3A3A3A" />
+                    <rect x="10" y="8" width="1.84" height="4.59677" fill="#3A3A3A" />
+                  </svg></span>
+                <span>Chennai Super Kings</span>
+              </div>
+              <div class="left">
+                <span><svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M14.3536 4.35355C14.5488 4.15829 14.5488 3.84171 14.3536 3.64645L11.1716 0.464466C10.9763 0.269204 10.6597 0.269204 10.4645 0.464466C10.2692 0.659728 10.2692 0.976311 10.4645 1.17157L13.2929 4L10.4645 6.82843C10.2692 7.02369 10.2692 7.34027 10.4645 7.53553C10.6597 7.7308 10.9763 7.7308 11.1716 7.53553L14.3536 4.35355ZM0 4.5H14V3.5H0V4.5Z"
+                      fill="#FF0000" />
+                  </svg></span>
+                <span class="stats-value">0.00</span>
+              </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="stats-btn">
+              <span class="stats">
+                <span>126</span><br>22672.4
+              </span>
+              <span class="right-stats-color stats">
+                <span>126</span><br> 22672.4
+              </span>
+            </div>
+          </div>
+          <hr>
+          <div class="content-header">
+            <div class="League-stats ngx">
+              <div class="left">
+                <span> <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="15" height="14" rx="0.790323" stroke="#3A3A3A" />
+                    <rect x="4" y="4" width="1.84" height="8.70968" fill="#3A3A3A" />
+                    <rect x="7" y="2" width="1.84" height="10.6452" fill="#3A3A3A" />
+                    <rect x="10" y="8" width="1.84" height="4.59677" fill="#3A3A3A" />
+                  </svg></span>
+                <span>Chennai Super Kings</span>
+              </div>
+              <div class="left">
+                <span><svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M14.3536 4.35355C14.5488 4.15829 14.5488 3.84171 14.3536 3.64645L11.1716 0.464466C10.9763 0.269204 10.6597 0.269204 10.4645 0.464466C10.2692 0.659728 10.2692 0.976311 10.4645 1.17157L13.2929 4L10.4645 6.82843C10.2692 7.02369 10.2692 7.34027 10.4645 7.53553C10.6597 7.7308 10.9763 7.7308 11.1716 7.53553L14.3536 4.35355ZM0 4.5H14V3.5H0V4.5Z"
+                      fill="#FF0000" />
+                  </svg></span>
+                <span class="stats-value">0.00</span>
+              </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="stats-btn">
+              <span class="stats">
+                <span>126</span><br>22672.4
+              </span>
+              <span class="right-stats-color stats">
+                <span>126</span><br> 22672.4
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- category 2 -->
+
+      </div>
+    </div>
+
+    <!-- category 2 -->
+    <div class="category" id="category2">
+      <div class="category-header">
+        <h4>Premier League</h4>
+        <div class="spacer"></div>
+        <div class="icons">
+          <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 16.6904H9H5" stroke="#5700A3" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M9 16.6904V12.6904" stroke="#5700A3" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path
+                d="M16 1.69043H2C1.44772 1.69043 1 2.13814 1 2.69043V11.6904C1 12.2427 1.44772 12.6904 2 12.6904H9H16C16.5523 12.6904 17 12.2427 17 11.6904V2.69043C17 2.13815 16.5523 1.69043 16 1.69043Z"
+                stroke="#5700A3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="live-tag"><strong>LIVE</strong></span>
+          <span class="close-icon" (click)="toggleCategoryBody('category2')"><svg width="19" height="19"
+              viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18.6899 18.6904L-5.91278e-05 18.6904L-5.74939e-05 0.00042752L18.6899 0.000429153L18.6899 18.6904Z"
+                fill="white" fill-opacity="0.01" />
+              <path d="M4.28308 11.6816L8.95558 7.00914L13.6281 11.6816" stroke="#6D6D6D" stroke-width="1.5575"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="category-body">
+        <div class="category-btn-group">
+          <button class="selected">ALl</button>
+          <button class="fancy-btn">Fancy</button>
+          <button class="sportbook-btn">SPORTBOOK</button>
+        </div>
+        <div class="category-content">
+          <div class="content-header">
+            <span class="League-stats">Min:100 | Max:1000</span>
+            <div class="spacer"></div>
+            <div class="content-btn">
+              <button>Yes</button>
+              <button class="right-stats-color">No</button>
+            </div>
+          </div>
+          <hr class="hr">
+          <div class="content-header">
+            <div class="League-stats ngx">
+              <div class="left">
+                <span> <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="15" height="14" rx="0.790323" stroke="#3A3A3A" />
+                    <rect x="4" y="4" width="1.84" height="8.70968" fill="#3A3A3A" />
+                    <rect x="7" y="2" width="1.84" height="10.6452" fill="#3A3A3A" />
+                    <rect x="10" y="8" width="1.84" height="4.59677" fill="#3A3A3A" />
+                  </svg></span>
+                <span>Chennai Super Kings</span>
+              </div>
+              <div class="left">
+                <span><svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M14.3536 4.35355C14.5488 4.15829 14.5488 3.84171 14.3536 3.64645L11.1716 0.464466C10.9763 0.269204 10.6597 0.269204 10.4645 0.464466C10.2692 0.659728 10.2692 0.976311 10.4645 1.17157L13.2929 4L10.4645 6.82843C10.2692 7.02369 10.2692 7.34027 10.4645 7.53553C10.6597 7.7308 10.9763 7.7308 11.1716 7.53553L14.3536 4.35355ZM0 4.5H14V3.5H0V4.5Z"
+                      fill="#FF0000" />
+                  </svg></span>
+                <span class="stats-value">0.00</span>
+              </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="stats-btn">
+              <span class="stats">
+                <span>126</span><br>22672.4
+              </span>
+              <span class="right-stats-color stats">
+                <span>126</span><br> 22672.4
+              </span>
+            </div>
+          </div>
+          <hr>
+          <div class="content-header">
+            <div class="League-stats ngx">
+              <div class="left">
+                <span> <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="15" height="14" rx="0.790323" stroke="#3A3A3A" />
+                    <rect x="4" y="4" width="1.84" height="8.70968" fill="#3A3A3A" />
+                    <rect x="7" y="2" width="1.84" height="10.6452" fill="#3A3A3A" />
+                    <rect x="10" y="8" width="1.84" height="4.59677" fill="#3A3A3A" />
+                  </svg></span>
+                <span>Chennai Super Kings</span>
+              </div>
+              <div class="left">
+                <span><svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M14.3536 4.35355C14.5488 4.15829 14.5488 3.84171 14.3536 3.64645L11.1716 0.464466C10.9763 0.269204 10.6597 0.269204 10.4645 0.464466C10.2692 0.659728 10.2692 0.976311 10.4645 1.17157L13.2929 4L10.4645 6.82843C10.2692 7.02369 10.2692 7.34027 10.4645 7.53553C10.6597 7.7308 10.9763 7.7308 11.1716 7.53553L14.3536 4.35355ZM0 4.5H14V3.5H0V4.5Z"
+                      fill="#FF0000" />
+                  </svg></span>
+                <span class="stats-value">0.00</span>
+              </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="stats-btn">
+              <span class="stats">
+                <span>126</span><br>22672.4
+              </span>
+              <span class="right-stats-color stats">
+                <span>126</span><br> 22672.4
+              </span>
+            </div>
+          </div>
+          <hr>
+          <div class="content-header">
+            <div class="League-stats ngx">
+              <div class="left">
+                <span> <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="15" height="14" rx="0.790323" stroke="#3A3A3A" />
+                    <rect x="4" y="4" width="1.84" height="8.70968" fill="#3A3A3A" />
+                    <rect x="7" y="2" width="1.84" height="10.6452" fill="#3A3A3A" />
+                    <rect x="10" y="8" width="1.84" height="4.59677" fill="#3A3A3A" />
+                  </svg></span>
+                <span>Chennai Super Kings</span>
+              </div>
+              <div class="left">
+                <span><svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M14.3536 4.35355C14.5488 4.15829 14.5488 3.84171 14.3536 3.64645L11.1716 0.464466C10.9763 0.269204 10.6597 0.269204 10.4645 0.464466C10.2692 0.659728 10.2692 0.976311 10.4645 1.17157L13.2929 4L10.4645 6.82843C10.2692 7.02369 10.2692 7.34027 10.4645 7.53553C10.6597 7.7308 10.9763 7.7308 11.1716 7.53553L14.3536 4.35355ZM0 4.5H14V3.5H0V4.5Z"
+                      fill="#FF0000" />
+                  </svg></span>
+                <span class="stats-value">0.00</span>
+              </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="stats-btn">
+              <span class="stats">
+                <span>126</span><br>22672.4
+              </span>
+              <span class="right-stats-color stats">
+                <span>126</span><br> 22672.4
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- category 2 -->
+
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-row">
+      <div class="footer-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M8 14.5V5.5L14 10M10 0C8.68678 0 7.38642 0.258658 6.17317 0.761205C4.95991 1.26375 3.85752 2.00035 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C3.85752 17.9997 4.95991 18.7362 6.17317 19.2388C7.38642 19.7413 8.68678 20 10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 8.68678 19.7413 7.38642 19.2388 6.17317C18.7362 4.95991 17.9997 3.85752 17.0711 2.92893C16.1425 2.00035 15.0401 1.26375 13.8268 0.761205C12.6136 0.258658 11.3132 0 10 0Z"
+            fill="#4F0A9B" />
+        </svg>
+        <span>In-Play</span>
+      </div>
+      <div class="footer-icon">
+        <svg width="24" height="19" viewBox="0 0 24 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#clip0_2_3941)">
             <path
-              d="M8.04524 20C17.3335 20 22.4138 12.3047 22.4138 5.63144C22.4138 5.41287 22.4138 5.19529 22.399 4.97869C23.3874 4.26381 24.2405 3.37867 24.9185 2.3647C23.9969 2.77329 23.0192 3.04112 22.018 3.15923C23.0723 2.52818 23.8613 1.53552 24.2382 0.366057C23.2469 0.954335 22.1624 1.36889 21.0315 1.59182C20.2701 0.782212 19.2631 0.246107 18.1663 0.0664704C17.0695 -0.113166 15.9441 0.0736804 14.9642 0.598096C13.9843 1.12251 13.2046 1.95526 12.7457 2.96748C12.2868 3.9797 12.1742 5.11495 12.4255 6.19756C10.4178 6.09685 8.45366 5.57507 6.66064 4.66609C4.86763 3.75712 3.28579 2.48127 2.01781 0.921344C1.37203 2.03306 1.17424 3.34911 1.46472 4.60154C1.75519 5.85397 2.51208 6.9486 3.58128 7.66257C2.77759 7.63903 1.9914 7.42221 1.28924 7.03049V7.09449C1.28956 8.26041 1.69316 9.39034 2.4316 10.2926C3.17003 11.1949 4.19783 11.8139 5.34067 12.0448C4.59721 12.2476 3.81715 12.2772 3.06045 12.1315C3.38327 13.1348 4.01156 14.0122 4.85746 14.641C5.70337 15.2698 6.72461 15.6185 7.77842 15.6384C6.73139 16.4614 5.53237 17.0699 4.24995 17.4291C2.96753 17.7882 1.62687 17.891 0.304688 17.7316C2.61411 19.2136 5.30121 19.9997 8.04524 19.9961"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
+              d="M0 16.0491C0 11.6838 0 7.31788 0 2.95254C0.0118631 2.92557 0.031635 2.89973 0.0350244 2.87164C0.196024 1.45155 1.45521 0.00279723 3.39737 0.00279723C8.8318 0.00167373 14.2668 -0.0045055 19.7012 0.00616771C21.6581 0.0100999 23.0884 1.46671 23.093 3.41261C23.0952 4.25748 23.093 5.10178 23.093 5.94665C23.093 6.01912 23.093 6.09158 23.093 6.18539H22.828C21.5728 6.18539 20.3176 6.18539 19.0623 6.18539C18.3409 6.18539 17.619 6.17697 16.8976 6.18708C14.5041 6.22078 12.9189 8.53463 13.7844 10.7249C14.2894 12.0023 15.5158 12.8118 16.9648 12.8146C18.9115 12.818 20.8587 12.8157 22.8054 12.8157H23.0817C23.0867 12.8713 23.0924 12.9067 23.0924 12.9427C23.0924 13.892 23.1082 14.8414 23.0862 15.7902C23.0472 17.4653 21.7191 18.8421 20.0385 18.9775C19.8741 18.991 19.7086 18.9983 19.5431 18.9983C14.1911 18.9994 8.83915 19.0011 3.48719 18.9983C2.01899 18.9972 0.933796 18.3551 0.297708 17.0283C0.152526 16.7238 0.0971645 16.3766 0 16.0491Z"
+              fill="#5700A3" />
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
+              d="M23.0805 11.4844H22.846C20.9005 11.4844 18.9555 11.4821 17.0099 11.4855C16.1547 11.4866 15.5045 11.1462 15.0972 10.3833C14.4628 9.19636 15.3022 7.65717 16.6518 7.53359C16.7343 7.52629 16.8167 7.51842 16.8992 7.51842C18.9193 7.5173 20.94 7.5173 22.9601 7.51842C22.9963 7.51842 23.0324 7.5246 23.0805 7.52909V11.4849V11.4844ZM17.315 10.1654C17.4653 10.1654 17.6161 10.1732 17.7652 10.1637C18.1499 10.1401 18.4256 9.8626 18.429 9.50532C18.4324 9.1503 18.1578 8.85875 17.7754 8.83909C17.476 8.82392 17.1743 8.82448 16.8744 8.83797C16.4897 8.85538 16.214 9.13794 16.2106 9.49521C16.2072 9.85922 16.4913 10.1435 16.8868 10.1643C17.0291 10.1721 17.1721 10.1654 17.315 10.1648V10.1654Z"
+              fill="#5700A3" />
+          </g>
+          <defs>
+            <clipPath id="clip0_2_3941">
+              <rect width="23.098" height="19" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+
+        <span>Wallet</span>
+      </div>
+      <div class="footer-icon home-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.000146866 11.7188C0.000146866 11.9062 0.000146866 12.0938 0.000146866 12.2813C0.423889 13.2918 0.742458 13.4999 1.86492 13.4999C2.23709 13.4999 2.60944 13.4999 3.0001 13.4999C3.0001 13.6183 3.0001 13.7102 3.0001 13.8024C3.0001 16.6763 2.99925 19.5502 3.00061 22.4241C3.00095 23.21 3.42452 23.7567 4.18092 23.9622C4.21043 23.9701 4.23741 23.9871 4.26556 24C5.84366 24 7.42175 24 8.99985 24C8.99985 21.5259 8.99849 19.052 9.00036 16.5779C9.00104 15.6418 9.6392 15.0028 10.5717 15.0005C11.5004 14.9983 12.4291 14.9996 13.3579 15C14.384 15.0003 14.9996 15.6181 14.9998 16.6479C15.0001 19.0986 14.9998 21.5491 14.9998 23.9998C16.5779 23.9998 18.156 23.9998 19.734 23.9998C20.722 23.6441 20.9995 23.247 20.9995 22.1898C20.9995 19.3863 20.9995 16.5826 20.9995 13.7791C20.9995 13.6892 20.9995 13.5995 20.9995 13.4996C21.5264 13.4996 22.018 13.5045 22.5092 13.4984C23.2076 13.4899 23.7487 13.0746 23.9479 12.4061C23.9606 12.3632 23.9822 12.3226 23.9995 12.2811C23.9995 12.0936 23.9995 11.906 23.9995 11.7186C23.856 11.2117 23.5141 10.84 23.1549 10.4809C19.9418 7.26962 16.7283 4.05898 13.5153 0.847656C13.156 0.488543 12.7862 0.145884 12.2809 0C12.0934 0 11.9058 0 11.7184 0C11.2305 0.142322 10.8655 0.464455 10.5169 0.813899C9.58525 1.74756 8.65074 2.67833 7.71708 3.60996C7.65873 3.66814 7.59698 3.7231 7.49944 3.81454C7.49944 3.52277 7.50148 3.27663 7.49911 3.03066C7.4908 2.15688 6.84534 1.50821 5.97428 1.50091C5.5217 1.49701 5.06894 1.49955 4.61636 1.50023C3.62232 1.50159 3.00061 2.12669 3.0001 3.12718C2.99925 4.78958 2.9979 6.45199 3.00315 8.11422C3.00366 8.26757 2.95736 8.37359 2.8493 8.48012C2.18807 9.13219 1.53329 9.79087 0.876469 10.4475C0.5065 10.8175 0.150442 11.1973 0.000146866 11.7188Z"
+            fill="#4F0A9B" />
+        </svg>
+
+      </div>
+      <div class="footer-icon">
+        <img src="../assets/icons/WhatsaApp icon.png" style="margin-top: -10px;" alt="" srcset="">
+
+
+        <span>Helpline</span>
+      </div>
+      <div class="footer-icon">
+        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M9.5 0C10.7598 0 11.968 0.500445 12.8588 1.39124C13.7496 2.28204 14.25 3.49022 14.25 4.75C14.25 6.00978 13.7496 7.21796 12.8588 8.10876C11.968 8.99956 10.7598 9.5 9.5 9.5C8.24022 9.5 7.03204 8.99956 6.14124 8.10876C5.25044 7.21796 4.75 6.00978 4.75 4.75C4.75 3.49022 5.25044 2.28204 6.14124 1.39124C7.03204 0.500445 8.24022 0 9.5 0ZM9.5 11.875C14.7487 11.875 19 14.0006 19 16.625V19H0V16.625C0 14.0006 4.25125 11.875 9.5 11.875Z"
+            fill="#4F0A9B" />
+        </svg>
+        <span>Account</span>
       </div>
     </div>
   </div>
 </main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet></router-outlet>
