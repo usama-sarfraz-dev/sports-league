@@ -252,7 +252,7 @@ body {
 
 .live-tag {
     background-color: #FF0000;
-    padding: 1px 8px;
+    padding: 2px 8px;
     color: #fff;
     font-size: 15px;
     border-radius: 5px;
@@ -263,7 +263,7 @@ body {
     border: none;
     padding: 10px 20px;
     color: #FFFF54;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .fancy-btn{
@@ -364,7 +364,7 @@ hr {
     background-color: #F1BED2 !important;
 }
 .hr {
-    margin-top: -8px;
+    margin-top: -3px;
 }
 
 .stats-btn {
@@ -428,6 +428,7 @@ hr {
     padding: 15px;
     background-color: #FFFFFF;
     height: 30px;
+    z-index: 1;
 }
 
 
